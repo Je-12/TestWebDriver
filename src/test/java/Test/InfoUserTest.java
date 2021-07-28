@@ -2,6 +2,7 @@ package Test;
 
 import Suporte.Generator;
 import Suporte.Screenshot;
+import Suporte.Web;
 import org.easetech.easytest.annotation.DataLoader;
 import org.easetech.easytest.annotation.Param;
 import org.easetech.easytest.runner.DataDrivenTestRunner;
@@ -14,12 +15,9 @@ import org.junit.runner.RunWith;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.assertEquals;
 
@@ -34,30 +32,24 @@ public class InfoUserTest {
 
     @Before
     public void setup(){
-        System.setProperty("webdriver.chrome.driver", "C:\\Users\\Jezreel Santana\\Drivers\\chromedriver.exe");
-        navegador = new ChromeDriver();
-        navegador.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-        navegador.get("http://www.juliodelima.com.br/taskit");
+        navegador = Web.createChrome();
 
-    //Clicar no link que possui o texto "Sing in"
-        navegador.findElement(By.linkText("Sign in")).click();
-
-    //Identificar o formulario login
+    // Identificar o formulario login
         WebElement Formsigninbox = navegador.findElement(By.id("signinbox"));
 
-    //Digitar no campo Login que esta dentro do formulario, o texto julio0001
+    // Digitar no campo Login que esta dentro do formulario, o texto julio0001
         Formsigninbox.findElement(By.name("login")).sendKeys("julio0001");
 
-    //Digitar no campo password o texto 123456
+    // Digitar no campo password o texto 123456
         Formsigninbox.findElement(By.name("password")).sendKeys("123456");
 
-    //clicar no link com o texto "Sing in"
+    // clicar no link com o texto "Sing in"
         navegador.findElement(By.linkText("SIGN IN")).click();
 
-    //Clicar em um link de text que possui a class "me"
+    // Clicar em um link de text que possui a class "me"
        navegador.findElement(By.className("me")).click();
 
-    //clicar no link com o texto "MORE DATA ABOUT YOU"
+    // clicar no link com o texto "MORE DATA ABOUT YOU"
         navegador.findElement(By.linkText("MORE DATA ABOUT YOU")).click();
     }
 
