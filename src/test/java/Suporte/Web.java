@@ -2,11 +2,7 @@ package Suporte;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
 
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 public class Web {
@@ -23,6 +19,8 @@ public class Web {
         return navegador;
     }
 
+    /*
+    Testes web na nuvem usando o site "BrowserStack"
     public static WebDriver createBrowserStack(){
         DesiredCapabilities caps = new DesiredCapabilities();
         caps.setCapability("os_version", "10");
@@ -44,5 +42,5 @@ public class Web {
         navegador.get("http://www.juliodelima.com.br/taskit");
 
         return navegador;
-    }
+    }*/
 }

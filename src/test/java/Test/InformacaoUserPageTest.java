@@ -21,7 +21,7 @@ public class InformacaoUserPageTest {
 
     @Before
     public void setup(){
-        navegador = Web.createBrowserStack();
+        navegador = Web.createChrome();
     }
     @Test
     public void testAdicionainfoUser (
